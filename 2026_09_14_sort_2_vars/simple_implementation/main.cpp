@@ -11,7 +11,8 @@ int main() {
     std::cout << "Введите размер массива: ";
     std::cin >> n;
 
-    int arr[n];
+    // VLA- размер массива задается переменной n в процессе работы функции
+    int *arr = new int[n];
 
     std::cout << "[!]Все элементы >=0 и не превосходят (1001)!\n"
               << "Введите элементы массива: ";
@@ -22,6 +23,8 @@ int main() {
     counting_sort(arr, n);
     print_arr("Отсортированный массив: ", arr, n);
 
+    delete[] arr;
+    arr = nullptr;
     return 0;
 }
 
